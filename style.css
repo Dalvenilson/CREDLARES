@@ -1,0 +1,464 @@
+/* Definição de Variáveis da Paleta de Cores CREDLARES */
+:root {
+    /* Cores da Logo e Dark Mode (Padrão) */
+    --primary-bg: #000000; /* Preto Principal */
+    --secondary-bg: #1A1A1A; /* Fundo Secundário */
+    --text-color: #f3f3f3; /* Texto Claro Principal */
+    --accent-color: #A2C04D; /* Verde CREDLARES (Destaque) */
+    --link-hover: #C5E060; /* Destaque ao passar o mouse */
+    --box-shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.6);
+    
+    /* Cores do Modo Claro (Light Mode) */
+    --light-bg: #f3f3f3; 
+    --light-text: #000000; 
+    --light-secondary-bg: #ffffff; 
+    --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Fontes */
+    --font-bold: 'Poppins', sans-serif;
+    --font-light: 'Poppins', sans-serif;
+}
+
+/* Estilos para o Tema Claro (ativados pela classe no body) */
+body.light-mode {
+    --primary-bg: var(--light-bg);
+    --secondary-bg: #EAEAEA;
+    --text-color: var(--light-text);
+    --box-shadow: var(--box-shadow-light);
+}
+
+/* Reset Básico e Configuração da Fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-light);
+    line-height: 1.6;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    scroll-behavior: smooth; 
+    transition: background-color 0.5s, color 0.5s; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+    transition: color 0.3s, opacity 0.3s;
+}
+
+a:hover {
+    color: var(--link-hover);
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER e Navegação (Menu) */
+header {
+    background-color: var(--primary-bg);
+    box-shadow: var(--box-shadow-dark);
+    padding: 10px 0; 
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.5s;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo do Logo CREDLARES */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 80px; 
+    width: 80px;
+    margin-right: 10px;
+    border-radius: 50%; 
+    transition: transform 0.3s;
+}
+.logo-img:hover {
+    transform: scale(1.05); 
+}
+
+
+.logo-text {
+    font-family: var(--font-bold);
+    font-size: 1.6em;
+    color: var(--text-color);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list li {
+    margin-left: 25px;
+}
+
+.nav-link {
+    color: var(--text-color);
+    font-weight: 300; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+}
+
+.accent-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-bg) !important; 
+    font-weight: 700;
+    padding: 8px 15px;
+}
+
+.accent-btn:hover {
+    background-color: var(--link-hover);
+    color: var(--primary-bg) !important;
+}
+
+/* SEÇÕES DE SERVIÇOS */
+.service-section {
+    padding: 80px 0;
+    background-color: var(--primary-bg);
+    text-align: center;
+    transition: background-color 0.5s;
+}
+
+.service-section.alternate {
+    background-color: var(--secondary-bg);
+}
+
+.service-section h3 {
+    font-family: var(--font-bold);
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.service-section p {
+    font-size: 1.1em;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.accent-link {
+    font-weight: 700;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    display: inline-block;
+    color: var(--accent-color);
+}
+
+.accent-link:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+}
+
+/* Seção de Destaque (Hero) - Usando imagem de fundo */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 1)), url('https://images.unsplash.com/photo-1549517045-bc93de0e06ff?fit=crop&w=1600&q=80') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.hero h2 {
+    font-family: var(--font-bold);
+    font-size: 3.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: var(--text-color);
+}
+
+.hero .subtitle {
+    font-size: 1.4em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-bg);
+    font-family: var(--font-bold);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--link-hover);
+}
+
+.large-btn {
+    font-size: 1.3em;
+    padding: 20px 40px;
+}
+
+
+/* CARD GRID (Serviços) */
+.cards-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-dark);
+    flex: 1;
+    min-width: 280px;
+    transition: transform 0.3s, background-color 0.5s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-bottom: 5px solid var(--accent-color);
+}
+
+.card i {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.card h4 {
+    font-family: var(--font-bold);
+    color: var(--link-hover);
+    margin-bottom: 10px;
+}
+
+/* Métricas (Quem Somos) */
+.metricas {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.metricas .numero {
+    font-family: var(--font-bold);
+    font-size: 2.5em;
+    color: var(--accent-color);
+    display: block;
+}
+.metricas p {
+    font-size: 1em;
+    margin: 0;
+}
+
+
+/* BOTÃO FLUTUANTE WHATSAPP */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366; 
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* MODAL (Simulação) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85); 
+    animation: fadeIn 0.3s; 
+}
+
+.modal-content {
+    background-color: var(--secondary-bg);
+    margin: 10% auto; 
+    padding: 30px;
+    border: 1px solid var(--accent-color);
+    width: 90%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-dark);
+    position: relative;
+    transition: background-color 0.5s;
+}
+
+.modal-content h4 {
+    font-family: var(--font-bold);
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+}
+
+.close-btn {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-color);
+}
+
+/* Botão de alternância de tema */
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--primary-bg);
+    color: #999;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--secondary-bg);
+    transition: background-color 0.5s;
+}
+
+/* RESPONSIVIDADE */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .hero h2 {
+        font-size: 2.8em;
+    }
+
+    .cards-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card {
+        min-width: unset;
+    }
+    
+    /* Ativa o menu hamburguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Ajusta o posicionamento do botão de tema */
+    header .container {
+        flex-wrap: wrap;
+    }
+    .theme-toggle-btn {
+        order: 3; 
+        margin-left: auto; 
+    }
+
+    .nav-list {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-bg);
+    }
+    
+    .nav-list.active {
+        display: flex;
+        position: absolute;
+        top: 65px; 
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid var(--secondary-bg);
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .metricas {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

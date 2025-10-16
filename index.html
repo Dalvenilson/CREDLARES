@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREDLARES - Especialista em Financiamento Imobiliário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="dark-mode">
+    <a href="https://wa.me/5598981320317" target="_blank" class="whatsapp-float" title="Fale com a CREDLARES no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="imagens/Gemini_Generated_Image_m5xe74m5xe74m5xe.png" alt="Logo CREDLARES" class="logo-img">
+                <h1 class="logo-text">CREDLARES</h1>
+            </div>
+            
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">Início</a></li>
+                    <li><a href="#servicos" class="nav-link">Nossos Serviços</a></li>
+                    <li><a href="#about" class="nav-link">Quem Somos</a></li>
+                    <li><a href="#" id="imobiliario-link" class="nav-link accent-btn">Simular Financiamento</a></li>
+                    <li><a href="https://wa.me/5598981320317" target="_blank" class="nav-link whatsapp-link"><i class="fab fa-whatsapp"></i> Contato</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle-btn" title="Alternar Tema">
+                    <i class="fas fa-sun"></i> 
+                </button>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container">
+                <p class="subtitle">Especialistas em Crédito Imobiliário</p>
+                <h2>O Caminho Mais Rápido para Sua Casa Própria.</h2>
+                <a href="#" id="hero-cta" class="cta-button">Comece Sua Simulação Agora <i class="fas fa-home"></i></a>
+            </div>
+        </section>
+
+        <section id="servicos" class="service-section">
+            <div class="container">
+                <h3>Serviços Imobiliários Exclusivos</h3>
+                <p>Cobrimos todas as etapas para garantir o melhor financiamento para você.</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <i class="fas fa-search-dollar"></i>
+                        <h4>Análise de Crédito Personalizada</h4>
+                        <p>Avaliamos seu perfil em diversos bancos para encontrar a menor taxa.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-file-contract"></i>
+                        <h4>Assessoria Completa na Documentação</h4>
+                        <p>Cuidamos de toda a papelada, do imóvel e do comprador, sem dor de cabeça.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-key"></i>
+                        <h4>Liberação Rápida do Recurso</h4>
+                        <p>Agilidade na assinatura e liberação para você receber a chave o quanto antes.</p>
+                    </div>
+                </div>
+
+                <a href="#" id="servicos-cta" class="accent-link">Quero Meu Financiamento <i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
+
+        <section id="about" class="service-section alternate">
+            <div class="container">
+                <h3>Quem Somos</h3>
+                <p class="intro-text">A CREDLARES nasceu com o objetivo de descomplicar o financiamento imobiliário. Somos um correspondente bancário certificado, focado em trazer transparência e as melhores condições para o seu investimento.</p>
+                
+                <div class="metricas">
+                    <div>
+                        <span class="numero">10+</span>
+                        <p>Anos de Experiência</p>
+                    </div>
+                    <div>
+                        <span class="numero">98%</span>
+                        <p>Aprovações de Crédito</p>
+                    </div>
+                    <div>
+                        <span class="numero">R$ 50M+</span>
+                        <p>Em Crédito Liberado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="service-section">
+            <div class="container">
+                <h3>Pronto para Mudar?</h3>
+                <p>Fale agora mesmo com nosso especialista e comece sua jornada imobiliária.</p>
+                <a href="https://wa.me/5598981320317?text=Quero%20come%C3%A7ar%20minha%20simula%C3%A7%C3%A3o%20imobili%C3%A1ria" target="_blank" class="cta-button large-btn">WhatsApp Direto: (98) 98132-0317</a>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CREDLARES - Correspondente Bancário Imobiliário. | CNPJ: XX.XXX.XXX/0001-XX</p>
+            <p>Criado com foco em resultados e aprovação de crédito.</p>
+        </div>
+    </footer>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4>Inicie Sua Simulação Imobiliária</h4>
+            <p>Preencha para receber uma análise de crédito prévia em instantes!</p>
+            <form id="login-form">
+                <input type="text" placeholder="Nome Completo" required>
+                <input type="email" placeholder="Melhor E-mail" required>
+                <input type="tel" placeholder="Seu WhatsApp (99 99999-9999)" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" required>
+                <button type="submit" class="cta-button">Enviar e Receber Simulação</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

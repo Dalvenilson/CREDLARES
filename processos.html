@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acompanhamento de Processos | CREDLARES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .login-container, .processos-container {
+      max-width: 600px;
+      margin: 100px auto;
+      background-color: var(--secondary-bg);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow-dark);
+      text-align: center;
+    }
+    .login-container h2 { color: var(--accent-color); margin-bottom: 20px; }
+    .login-container input {
+      width: 100%; padding: 10px; margin-bottom: 10px;
+      border: 1px solid var(--accent-color); border-radius: 5px;
+      background-color: var(--primary-bg); color: var(--text-color);
+    }
+    .login-container button, .logout-btn {
+      background-color: var(--accent-color); border: none; color: var(--primary-bg);
+      font-weight: bold; padding: 10px 20px; border-radius: 5px; cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .login-container button:hover, .logout-btn:hover { background-color: var(--link-hover); }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; }
+    th { background-color: var(--accent-color); color: var(--primary-bg); }
+    .logout-btn { margin-top: 20px; }
+  </style>
+</head>
+<body class="dark-mode">
+  <header>
+    <div class="container">
+      <div class="logo-container">
+        <img src="imagens/Gemini_Generated_Image_m5xe74m5xe74m5xe.png" alt="Logo CREDLARES" class="logo-img">
+        <h1 class="logo-text">CREDLARES</h1>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="#!" class="nav-link accent-btn">Processos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="login-container" id="loginContainer">
+    <h2>Acesso Restrito ao Corretor</h2>
+    <input type="text" id="usuario" placeholder="Nome do Corretor">
+    <input type="password" id="senha" placeholder="Senha">
+    <button onclick="fazerLogin()">Entrar</button>
+    <p id="mensagemErro" style="color: red; margin-top: 10px;"></p>
+  </div>
+
+  <div class="processos-container" id="processosContainer" style="display:none;">
+    <h2>Seus Processos</h2>
+    <p id="bemVindo"></p>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Cliente</th><th>Status</th><th>Observações</th>
+        </tr>
+      </thead>
+      <tbody id="tabelaProcessos"></tbody>
+    </table>
+    <button class="logout-btn" onclick="logout()">Sair</button>
+  </div>
+
+  <script>
+    const corretores = {
+      "CorretorA": { senha: "1234" },
+      "CorretorB": { senha: "5678" },
+      "CorretorC": { senha: "abcd" }
+    };
+    const processos = [
+      {id: "001", cliente: "João Silva", corretor: "CorretorA", status: "PENDENTE", observacoes: "Falta documentos"},
+      {id: "002", cliente: "Maria Souza", corretor: "CorretorB", status: "APROVADO", observacoes: "Pronto para assinatura"},
+      {id: "003", cliente: "Pedro Lima", corretor: "CorretorA", status: "EM ANÁLISE", observacoes: "Aguardando aprovação"},
+      {id: "004", cliente: "Ana Costa", corretor: "CorretorC", status: "CONCLUÍDO", observacoes: "Processo finalizado"}
+    ];
+    function fazerLogin() {
+      const usuario = document.getElementById("usuario").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+      const mensagemErro = document.getElementById("mensagemErro");
+      if (!usuario || !senha) { mensagemErro.textContent = "Preencha todos os campos."; return; }
+      if (corretores[usuario] && corretores[usuario].senha === senha) {
+        localStorage.setItem("corretorLogado", usuario);
+        mostrarProcessos(usuario);
+      } else {
+        mensagemErro.textContent = "Usuário ou senha incorretos.";
+      }
+    }
+    function mostrarProcessos(usuario) {
+      document.getElementById("loginContainer").style.display = "none";
+      const container = document.getElementById("processosContainer");
+      container.style.display = "block";
+      document.getElementById("bemVindo").textContent = `Bem-vindo, ${usuario}!`;
+      const tabela = document.getElementById("tabelaProcessos");
+      tabela.innerHTML = "";
+      const filtrados = processos.filter(p => p.corretor === usuario);
+      if (filtrados.length === 0) {
+        tabela.innerHTML = `<tr><td colspan="4">Nenhum processo encontrado.</td></tr>`; return;
+      }
+      filtrados.forEach(p => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${p.id}</td><td>${p.cliente}</td><td>${p.status}</td><td>${p.observacoes}</td>`;
+        tabela.appendChild(tr);
+      });
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const usuarioLogado = localStorage.getItem("corretorLogado");
+      if (usuarioLogado) { mostrarProcessos(usuarioLogado); }
+    });
+    function logout() {
+      localStorage.removeItem("corretorLogado");
+      document.getElementById("processosContainer").style.display = "none";
+      document.getElementById("loginContainer").style.display = "block";
+    }
+  </script>
+</body>
+</html>
